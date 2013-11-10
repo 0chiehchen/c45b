@@ -3,7 +3,7 @@ Makefile*
 #*.deb
 *.o
 *.out
-console/c45b
+#console/c45b
 *.so
 *.so.*
 doc-pak/
