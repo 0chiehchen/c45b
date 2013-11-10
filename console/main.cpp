@@ -223,6 +223,9 @@ bool connectBootloader(C45BSerialPort* port, bool debug, bool verbose)
         if(avail)
         {
             prompt = port->readUntil(C45BSerialPort::XON, 30);
+
+//    		if (debug) cout << "Read " << prompt.size() << " bytes: " << FormatControlChars(prompt).toStdString() << endl;
+
             if (prompt.contains("c45b2"))
             {
                 connected = true;
@@ -249,12 +252,13 @@ bool connectBootloader(C45BSerialPort* port, bool debug, bool verbose)
         cout << "Error: No initial reply from bootloader" << endl;
         return false;
     }
+/*
     if (!gotActiveBootloader && !prompt.contains("c45b2"))
     {
         cout << "Error: Wrong bootloader version: " << prompt << endl;
         return false;
     }
-
+*/
     if (gotActiveBootloader)
         cout << "Warning: bootloader was already active - could not check for compatible version" << endl;
     else if (verbose)
@@ -283,9 +287,9 @@ int main(int argc, char** argv)
     opt.overview = "Tool for communicating with the Chip45 bootloader";
     opt.syntax = "c45b [OPTIONS]";
 #ifdef WIN32
-    opt.example = "c45b -p COM3 -b 57600 -c \"R!\" -f avrblink.hex -e avrblink.eep -r\n";
+    opt.example = "[ieeeg] c45b -p COM3 -b 57600 -c \"R!\" -f avrblink.hex -e avrblink.eep -r\n";
 #else
-    opt.example = "c45b -p /dev/ttyUSB0 -b 57600  -c \"R!\" -f avrblink.hex -e avrblink.eep -r\n";
+    opt.example = "[ieeeg] c45b -p /dev/ttyUSB0 -b 57600  -c \"R!\" -f avrblink.hex -e avrblink.eep -r\n";
 #endif
 
     opt.add("", false, 0, 0, "Show version", "-v", "--version");
@@ -478,12 +482,62 @@ int main(int argc, char** argv)
         return 1;
     }
 
+    int avail = 0;
+    QString prompt;
+    bool starboot = false;
+    bool uboot = false;
     if (sendAppCmd)
     {
         if (verbose)
-            cout << "Sending app command" << endl;
-        port->write(appCmd);
+            cout << "Sending app command (ignored)" << endl;
+        //port->write(appCmd);
+
+        // Flush
+        port->readAll();
+        Msleep(10);
+
+	cout << "*BOOT" << endl;
+	port->write("*BOOT\r");
+	port->flushOutBuffer();
+	Msleep(100);
+
+        avail = port->bytesAvailable();
+        if(avail)
+        {
+            prompt = port->readUntil('\r', 30);
+            if (prompt.contains("#BOOT:"))
+            {
+                starboot = true;
+                if(debug)
+                    cout << "#BOOT: found..." << endl;
+            }
+        }
+
+	Msleep(1000);		// very important to wait...
+
+	cout << "U's..." << endl;
+	port->write("UUUUUU");
+	port->flushOutBuffer();
+	Msleep(100);
+
+        avail = port->bytesAvailable();
+        if(avail)
+        {
+            prompt = port->readUntil('\n', 30);
+	    cout << "[" << prompt << "]" << endl;
+            if (prompt.contains("c45b2"))
+            {
+                uboot = true;
+                if(debug)
+                    cout << "Into bootloader..." << endl;
+            }
+        }
+
     }
+
+    // Flush
+    //port->readAll();
+    //Msleep(10);
 
     if (verbose)
         cout << "Connecting..." << flush;
