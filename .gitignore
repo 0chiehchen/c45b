@@ -1,6 +1,6 @@
 *.swp
 Makefile*
-*.deb
+#*.deb
 *.o
 *.out
 console/c45b
