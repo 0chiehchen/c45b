@@ -486,20 +486,21 @@ int main(int argc, char** argv)
     QString prompt;
     bool starboot = false;
     bool uboot = false;
+    #define cmdWaitTime 200
+    bool doConnect = true;
     if (sendAppCmd)
     {
-	if (appCmd.contains("AD-")) {	// AD-8x / AD-4x
-		if (verbose)
-		    cout << "[AD-] Sending AD- bootloading commands..." << endl;
+	if (appCmd.contains("AD-")) {
+		if (verbose) cout << "[AD-] Sending AD- bootloading commands..." << endl;
 
 		// Flush
 		port->readAll();
-		Msleep(10);
+		Msleep(100);
 
 		cout << "*VER#" << endl;
 		port->write("*VER#\r");
 		port->flushOutBuffer();
-		Msleep(100);
+		Msleep(cmdWaitTime);
 
 		avail = port->bytesAvailable();
 		if(avail)
@@ -511,7 +512,7 @@ int main(int argc, char** argv)
 		cout << "*BOOT" << endl;
 		port->write("*BOOT\r");
 		port->flushOutBuffer();
-		Msleep(100);
+		Msleep(cmdWaitTime);
 
 		avail = port->bytesAvailable();
 		if(avail)
@@ -525,12 +526,16 @@ int main(int argc, char** argv)
 		    }
 		}
 
+		// If false on starboot, then return with error:
+		cout << "STARBOOT: " << starboot << endl;
+    		//if (!starboot) return 1;
+
 		Msleep(1000);		// very important to wait...
 
 		cout << "U's..." << endl;
 		port->write("UUUUUU");
 		port->flushOutBuffer();
-		Msleep(100);
+		Msleep(cmdWaitTime);
 
 		avail = port->bytesAvailable();
 		if(avail)
@@ -545,6 +550,16 @@ int main(int argc, char** argv)
 		    }
 		}
 
+        	cout << "UBOOT: " << uboot << endl << endl;
+
+    		// Flush
+    		//port->readAll();
+    		//Msleep(100);
+
+	} else if (appCmd.contains("TEST-")) {
+		if (verbose) cout << "[TEST-] Sending AD- TEST commands..." << endl;
+		doConnect = false;
+
 	} else {	// otherwise, the sendout the actual appCmd:
 		if (verbose)
 		    cout << "Sending app command" << endl;
@@ -552,51 +567,177 @@ int main(int argc, char** argv)
 	}
     }
 
-    // Flush
-    //port->readAll();
-    //Msleep(10);
 
-    // If false on starboot, then return with error:
-    if (!starboot)
-        return 1;
+    if(doConnect)
+    {
+	    if (verbose)
+		cout << "Connecting..." << flush;
 
-    if (uboot) {
-        cout << "UBOOT: true" << flush;
-    } else {
-	cout << "UBOOT: false" << flush;
+	    if (!connectBootloader(port, debug, verbose))
+		return 1;
     }
 
-
-    if (verbose)
-        cout << "Connecting..." << flush;
-
-    if (!connectBootloader(port, debug, verbose))
-        return 1;
-
+    bool success = true;
     if(doFlash)
     {
-        if (!program(flashHexFile, port, 0, true, verbose))
-            return 1;
+        if (!program(flashHexFile, port, 0, true, verbose)) 
+	{
+		if (verbose) cout << "FLASH:  FAILED" << endl;
+		success = false;
+        	//return 1;
+	} else {
+		if (verbose) cout << "FLASH:  SUCCESS" << endl;
+	}
     }
 
     if (doEeprom)
     {
-        if(!program(eepHexFile, port, eepromWriteDelay, false, verbose))
-            return 1;
+        if(!program(eepHexFile, port, eepromWriteDelay, false, verbose)) 
+	{
+		if (verbose) cout << "EEPROM:  FAILED" << endl;
+		success = false;
+        	//return 1;
+	} else {
+		if (verbose) cout << "EEPROM:  SUCCESS" << endl;
+	}
     }
 
     if (doEepromRead)
     {
         HexFile resultHexFile;
         if (!readEeprom(resultHexFile, eepromReadBytes, port, verbose))
-            return 1;
-        writeHexfile(eepromReadFilename, resultHexFile);
+	{
+		if (verbose) cout << "EEPROM READ:  FAILED" << endl;
+		success = false;
+        	//return 1;
+	} else {
+		if (verbose) cout << "EEPROM READ:  SUCCESS" << endl;
+	        writeHexfile(eepromReadFilename, resultHexFile);
+	}
     }
 
     if (runApp)
     {
         port->putChar('g');
         port->putChar('\n');
+    }
+
+    if (appCmd.contains("AD-") || appCmd.contains("TEST-")) {
+	if (verbose) cout << "[AD-] ..." << endl;
+	if (success) {
+		if (doConnect) {	// do this only Connected to the bootloader:
+			if (verbose) cout << "SUCCESS:  Run the firmware..." << endl;
+			port->putChar('g');
+			port->putChar('\n');
+		}
+
+    		Msleep(1000);
+
+    		// Flush
+    		port->readAll();
+    		Msleep(100);
+
+		cout << "*VER#" << endl;
+		port->write("*VER#\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+
+		avail = port->bytesAvailable();
+		if(avail)
+		{
+		    prompt = port->readUntil('\r', 10);
+		    if(debug)  cout << "VERSION: " << prompt << endl;
+		}
+
+		cout << "SEND TEST COMMANDS..." << endl;
+		Msleep(1000);
+		// ALL OFF
+		port->write("*ZALLPWR00\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		// TURNING ON 1 by 1
+		port->write("*ZN01PWR01\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN02PWR01\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN03PWR01\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN04PWR01\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN05PWR01\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN06PWR01\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN07PWR01\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN08PWR01\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		// SOURCE SET
+		port->write("*ZN01SRC01\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN02SRC02\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN03SRC03\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN04SRC04\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN05SRC05\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN06SRC06\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN07SRC07\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN08SRC08\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		// POWER OFF
+		Msleep(1000);
+		port->write("*ZN08PWR00\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN07PWR00\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN06PWR00\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN05PWR00\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN04PWR00\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN03PWR00\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN02PWR00\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		port->write("*ZN01PWR00\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+		// ALL ON
+		port->write("*ZALLPWR01\r");
+		port->flushOutBuffer();
+		Msleep(cmdWaitTime);
+	} else {
+		if (verbose) cout << "FAILED:  One of the programming failed...  Not going to run the firmware..." << endl;	
+	}
     }
 
     port->close();
