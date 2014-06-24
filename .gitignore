@@ -12,3 +12,8 @@ qserialport/build/
 qserialport/lib/
 description-pak
 qserialport/unittest/qserialportunittest/qserialportunittest
+vagrant/
+vagrant/*
+
+
+
