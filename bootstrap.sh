@@ -34,6 +34,10 @@ sudo usermod -a -G dialout vagrant
 groups vagrant
 id vagrant
 
+# .bash_profile
+echo .bash_profile
+cp -a /vagrant/.bash_profile ~vagrant/
+
 echo "
 bootstrap.sh done...
 "
