@@ -24,6 +24,7 @@ sudo apt-get -y --force-yes install qt4-default
 sudo apt-get -y --force-yes install libqt4-core
 sudo apt-get -y --force-yes install libqt4-dev
 #sudo apt-get -y --force-yes install qt4-default:i386 qt4-qmake:i386 libqt4-core:i386 libqt4-dev:i386
+sudo apt-get -y --force-yes install checkinstall
 
 # Install c45b and the required libqtcore4
 sudo apt-get -y --force-yes install libqtcore4
