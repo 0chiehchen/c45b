@@ -531,12 +531,15 @@ int main(int argc, char** argv)
     		//if (!starboot) return 1;
 
 		Msleep(1000);		// very important to wait...
-
+		
+		/*
 		cout << "U's..." << endl;
 		port->write("UUUUUU");
 		port->flushOutBuffer();
 		Msleep(cmdWaitTime);
-
+		*/
+		
+		/*
 		avail = port->bytesAvailable();
 		if(avail)
 		{
@@ -550,11 +553,12 @@ int main(int argc, char** argv)
 		    }
 		}
 
-        	cout << "UBOOT: " << uboot << endl << endl;
-
-    		// Flush
-    		//port->readAll();
-    		//Msleep(100);
+    	cout << "UBOOT: " << uboot << endl << endl;
+		*/
+		
+		// Flush
+		//port->readAll();
+		//Msleep(100);
 
 	} else if (appCmd.contains("TEST-")) {
 		if (verbose) cout << "[TEST-] Sending AD- TEST commands..." << endl;
