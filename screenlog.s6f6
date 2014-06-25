@@ -1,0 +1,223 @@
+vagrant@precise32:/vagrant$ ./c45b-flash-wiz-loop.sh 
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+VERSION: #v3.03
+*BOOT
+#BOOT: found...
+STARBOOT: 1
+Connecting...Found fresh bootloader
+Read 21 bytes: c45b2 v2.9M.05<0a><0d>>-<0a><0d>>
+Connected                                                                      
+Bootloader v2.9M.05 >- >
+Programming flash memory...++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++...done
+FLASH:  SUCCESS
+[AD-] ...
+SUCCESS:  Run the firmware...
+*VER#
+VERSION: #v3.03
+SEND TEST COMMANDS...
+SEND TEST COMMANDS DONE...
+RESULT: 0
+RESULT: SUCCESS
+# SUCCESS: 1   FAIL: 0   TOTAL: 1
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+VERSION: #v3.03
+*BOOT
+#BOOT: found...
+STARBOOT: 1
+Connecting...Found fresh bootloader
+Read 21 bytes: c45b2 v2.9M.05<0a><0d>>-<0a><0d>>
+Connected                                                                      
+Bootloader v2.9M.05 >- >
+Programming flash memory...++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++...done
+FLASH:  SUCCESS
+[AD-] ...
+SUCCESS:  Run the firmware...
+*VER#
+VERSION: #v3.03
+SEND TEST COMMANDS...
+SEND TEST COMMANDS DONE...
+RESULT: 0
+RESULT: SUCCESS
+# SUCCESS: 2   FAIL: 0   TOTAL: 2
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+VERSION: #v3.03
+*BOOT
+#BOOT: found...
+STARBOOT: 1
+Connecting...Found fresh bootloader
+Read 21 bytes: c45b2 v2.9M.05<0a><0d>>-<0a><0d>>
+Connected                                                                      
+Bootloader v2.9M.05 >- >
+Programming flash memory...++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++...done
+FLASH:  SUCCESS
+[AD-] ...
+SUCCESS:  Run the firmware...
+*VER#
+VERSION: #v3.03
+SEND TEST COMMANDS...
+SEND TEST COMMANDS DONE...
+RESULT: 0
+RESULT: SUCCESS
+# SUCCESS: 3   FAIL: 0   TOTAL: 3
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+VERSION: #v3.03
+*BOOT
+#BOOT: found...
+STARBOOT: 1
+Connecting...Found fresh bootloader
+Read 21 bytes: c45b2 v2.9M.05<0a><0d>>-<0a><0d>>
+Connected                                                                      
+Bootloader v2.9M.05 >- >
+Programming flash memory...++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++...done
+FLASH:  SUCCESS
+[AD-] ...
+SUCCESS:  Run the firmware...
+*VER#
+VERSION: #v3.03
+SEND TEST COMMANDS...
+SEND TEST COMMANDS DONE...
+RESULT: 0
+RESULT: SUCCESS
+# SUCCESS: 4   FAIL: 0   TOTAL: 4
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+VERSION: #v3.03
+*BOOT
+#BOOT: found...
+STARBOOT: 1
+Connecting...Found fresh bootloader
+Read 21 bytes: c45b2 v2.9M.05<0a><0d>>-<0a><0d>>
+Connected                                                                      
+Bootloader v2.9M.05 >- >
+Programming flash memory...++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++...done
+FLASH:  SUCCESS
+[AD-] ...
+SUCCESS:  Run the firmware...
+*VER#
+VERSION: #v3.03
+SEND TEST COMMANDS...
+SEND TEST COMMANDS DONE...
+RESULT: 0
+RESULT: SUCCESS
+# SUCCESS: 5   FAIL: 0   TOTAL: 5
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+VERSION: #v3.03
+*BOOT
+#BOOT: found...
+STARBOOT: 1
+Connecting...Found fresh bootloader
+Read 21 bytes: c45b2 v2.9M.05<0a><0d>>-<0a><0d>>
+Connected                                                                      
+Bootloader v2.9M.05 >- >
+Programming flash memory...+++++++++Timeout
+Error: Failed to download line 77
+FLASH:  FAILED
+[AD-] ...
+FAILED:  One of the programming failed...  Not going to run the firmware...
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 1   TOTAL: 6
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting........................................................Read 4 bytes: -<0a><0d>>
+Connected                                                                      
+Bootloader 
+Programming flash memory...+++++++++++Timeout
+Error: Failed to download line 93
+FLASH:  FAILED
+[AD-] ...
+FAILED:  One of the programming failed...  Not going to run the firmware...
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 2   TOTAL: 7
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting.......................................................Read 4 bytes: -<0a><0d>>
+Connected                                                                      
+Bootloader 
+Programming flash memory...++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++...done
+FLASH:  SUCCESS
+[AD-] ...
+SUCCESS:  Run the firmware...
+*VER#
+SEND TEST COMMANDS...
+SEND TEST COMMANDS DONE...
+RESULT: 0
+RESULT: SUCCESS
+# SUCCESS: 6   FAIL: 2   TOTAL: 8
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 6   FAIL: 3   TOTAL: 9
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 6   FAIL: 4   TOTAL: 10
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 6   FAIL: 5   TOTAL: 11
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 6   FAIL: 6   TOTAL: 12
+^C
+vagrant@precise32:/vagrant$ exit
+exit

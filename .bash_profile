@@ -1,5 +1,5 @@
 
 cd /vagrant
 pwd
-screen -L -R
+screen -L -D -R
 
