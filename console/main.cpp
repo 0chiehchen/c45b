@@ -485,7 +485,7 @@ int main(int argc, char** argv)
     int avail = 0;
     QString prompt;
     bool starboot = false;
-    bool uboot = false;
+    //bool uboot = false;
     #define cmdWaitTime 300
     bool doConnect = true;
     if (sendAppCmd)
@@ -508,6 +508,10 @@ int main(int argc, char** argv)
 		    prompt = port->readUntil('\r', 10);
 		    if(debug)  cout << "VERSION: " << prompt << endl;
 		}
+
+		// Flush
+		port->readAll();
+		Msleep(100);
 
 		cout << "*BOOT" << endl;
 		port->write("*BOOT\r");
@@ -539,8 +543,6 @@ int main(int argc, char** argv)
 		Msleep(cmdWaitTime);
 		*/
 		
-		port->write("\r\n");
-
 		/*
 		avail = port->bytesAvailable();
 		if(avail)
