@@ -38,6 +38,7 @@ id vagrant
 # .bash_profile
 echo .bash_profile
 cp -a /vagrant/.bash_profile ~vagrant/
+cp -a /vagrant/.minirc.dfl ~vagrant/
 
 echo "
 bootstrap.sh done...
