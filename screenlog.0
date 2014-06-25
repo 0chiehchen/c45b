@@ -1,0 +1,22 @@
+vagrant@precise32:/vagrant$ 
+vagrant@precise32:/vagrant$ pwd
+/vagrant
+vagrant@precise32:/vagrant$ ls
+[0m[01;32mAD8x-v3.03.hex[0m                    [01;31mbackup-111220131208-pre-c45b.tgz[0m  [01;32mc45b-flash-wiz-mod.sh[0m  INSTALL
+[01;32mAD8x-v3.03-WIZ.hex[0m                bootstrap.sh                      [01;32mc45b-flash-wiz.sh[0m      Makefile
+[01;31mbackup-062420142340-pre-c45b.tgz[0m  [01;31mc45b_20131110-1_amd64.deb[0m         c45b-i386              prefix.pri
+[01;31mbackup-111020131258-pre-c45b.tgz[0m  [01;31mc45b_20131110-1_i386.deb[0m          c45b.pro               [01;34mqserialport[0m
+[01;31mbackup-111020131305-pre-c45b.tgz[0m  [01;31mc45b_20131112-1_i386.deb[0m          [01;34mcommon[0m                 README
+[01;31mbackup-111220131051-pre-c45b.tgz[0m  [01;31mc45b_20131114-1_i386.deb[0m          [01;34mconsole[0m                screenlog.0
+[01;31mbackup-111220131201-pre-c45b.tgz[0m  [01;31mc45b_20140624-1_i386.deb[0m          description-pak        [01;34mtest[0m
+[01;31mbackup-111220131206-pre-c45b.tgz[0m  c45b-amd64                        [01;34mdoc-pak[0m                Vagrantfile
+[01;31mbackup-111220131207-pre-c45b.tgz[0m  [01;32mc45b-flash-wiz-loop.sh[0m            [01;34mezOptionParser-0.0.0[0m
+vagrant@precise32:/vagrant$ ,.c   .. /c45b-flash-wiz-loop.sh 
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+VERSION: *VEÿ
+*BOOT
+STARBOOT: 0
+Connecting..........
