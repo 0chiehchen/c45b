@@ -530,15 +530,17 @@ int main(int argc, char** argv)
 		cout << "STARBOOT: " << starboot << endl;
     		//if (!starboot) return 1;
 
-		Msleep(1000);		// very important to wait...
-		
+		//Msleep(1000);		// very important to wait...
+
 		/*
 		cout << "U's..." << endl;
-		port->write("UUUUUU");
+		port->write("UUUUUU\n");
 		port->flushOutBuffer();
 		Msleep(cmdWaitTime);
 		*/
 		
+		port->write("\r\n");
+
 		/*
 		avail = port->bytesAvailable();
 		if(avail)
@@ -584,14 +586,15 @@ int main(int argc, char** argv)
     bool success = true;
     if(doFlash)
     {
-        if (!program(flashHexFile, port, 0, true, verbose)) 
-	{
-		if (verbose) cout << "FLASH:  FAILED" << endl;
-		success = false;
-        	//return 1;
-	} else {
-		if (verbose) cout << "FLASH:  SUCCESS" << endl;
-	}
+	    // if (!program(flashHexFile, port, 0, true, verbose)) 	// no delay
+        if (!program(flashHexFile, port, 24, true, verbose)) 	// delay
+		{
+			if (verbose) cout << "FLASH:  FAILED" << endl;
+			success = false;
+	        	//return 1;
+		} else {
+			if (verbose) cout << "FLASH:  SUCCESS" << endl;
+		}
     }
 
     if (doEeprom)
@@ -626,7 +629,7 @@ int main(int argc, char** argv)
         port->putChar('\n');
     }
 
-    if (appCmd.contains("AD-") || appCmd.contains("TEST-")) {
+  if (appCmd.contains("AD-") || appCmd.contains("TEST-")) {
 	if (verbose) cout << "[AD-] ..." << endl;
 	if (success) {
 		if (doConnect) {	// do this only Connected to the bootloader:
@@ -739,12 +742,16 @@ int main(int argc, char** argv)
 		port->write("*ZALLPWR01\r");
 		port->flushOutBuffer();
 		Msleep(cmdWaitTime);
+		cout << "SEND TEST COMMANDS DONE..." << endl;
 	} else {
-		if (verbose) cout << "FAILED:  One of the programming failed...  Not going to run the firmware..." << endl;	
+		if (verbose) cout << "FAILED:  One of the programming failed...  Not going to run the firmware..." << endl;
 	}
-    }
+  }	// if (appCmd.contains("AD-") || appCmd.contains("TEST-"))
 
-    port->close();
+  port->close();
+  
+  // FIX:  need this to quit with ERROR!!!
+  if (!success) return 1;
 }
 
 static void SilentMsgHandler(QtMsgType, const char *)

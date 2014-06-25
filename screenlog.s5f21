@@ -1,0 +1,349 @@
+vagrant@precise32:/vagrant$ ./c45b-flash-wiz-loop.sh 
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting.............Found fresh bootloader
+Read 21 bytes: c45b2 v2.9M.05<0a><0d>>-<0a><0d>>
+Connected                                                                      
+Bootloader v2.9M.05 >- >
+Programming flash memory...+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Timeout
+Error: Failed to download line 828
+FLASH:  FAILED
+[AD-] ...
+FAILED:  One of the programming failed...  Not going to run the firmware...
+RESULT: 0
+RESULT: SUCCESS
+# SUCCESS: 1   FAIL: 0   TOTAL: 1
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting...........................................................Read 4 bytes: -<0a><0d>>
+Connected                                                                      
+Bootloader 
+Programming flash memory...Timeout
+Error: Failed to download line 2
+FLASH:  FAILED
+[AD-] ...
+FAILED:  One of the programming failed...  Not going to run the firmware...
+RESULT: 0
+RESULT: SUCCESS
+# SUCCESS: 2   FAIL: 0   TOTAL: 2
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting.........................................................Read 4 bytes: -<0a><0d>>
+Connected                                                                      
+Bootloader 
+Programming flash memory...+++++++++++++++++++++Timeout
+Error: Failed to download line 169
+FLASH:  FAILED
+[AD-] ...
+FAILED:  One of the programming failed...  Not going to run the firmware...
+RESULT: 0
+RESULT: SUCCESS
+# SUCCESS: 3   FAIL: 0   TOTAL: 3
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..........................................................Read 4 bytes: -<0a><0d>>
+Connected                                                                      
+Bootloader 
+Programming flash memory...+++++++++++++++++++++++++++++++++++++Timeout
+Error: Failed to download line 299
+FLASH:  FAILED
+[AD-] ...
+FAILED:  One of the programming failed...  Not going to run the firmware...
+RESULT: 0
+RESULT: SUCCESS
+# SUCCESS: 4   FAIL: 0   TOTAL: 4
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting.......................................................Read 4 bytes: -<0a><0d>>
+Connected                                                                      
+Bootloader 
+Programming flash memory...++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++...done
+FLASH:  SUCCESS
+[AD-] ...
+SUCCESS:  Run the firmware...
+*VER#
+SEND TEST COMMANDS...
+RESULT: 0
+RESULT: SUCCESS
+# SUCCESS: 5   FAIL: 0   TOTAL: 5
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 1   TOTAL: 6
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 2   TOTAL: 7
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 3   TOTAL: 8
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 4   TOTAL: 9
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 5   TOTAL: 10
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 6   TOTAL: 11
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 7   TOTAL: 12
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 8   TOTAL: 13
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 9   TOTAL: 14
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 10   TOTAL: 15
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 11   TOTAL: 16
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 12   TOTAL: 17
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 13   TOTAL: 18
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 14   TOTAL: 19
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 15   TOTAL: 20
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 16   TOTAL: 21
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 17   TOTAL: 22
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 18   TOTAL: 23
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 19   TOTAL: 24
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 20   TOTAL: 25
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting..............................................................Read 0 bytes: 
+Connected                                                                      
+Error: No initial reply from bootloader
+RESULT: 1
+RESULT: FAIL
+# SUCCESS: 5   FAIL: 21   TOTAL: 26
+Loaded hex file
+Read 13534 bytes
+[AD-] Sending AD- bootloading commands...
+*VER#
+*BOOT
+STARBOOT: 0
+Connecting.........^C
+vagrant@precise32:/vagrant$ mv screenlog.             exit
+exit
