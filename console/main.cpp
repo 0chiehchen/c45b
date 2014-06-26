@@ -589,7 +589,7 @@ int main(int argc, char** argv)
     if(doFlash)
     {
 	    // if (!program(flashHexFile, port, 0, true, verbose)) 	// no delay
-        if (!program(flashHexFile, port, 24, true, verbose)) 	// delay
+        if (!program(flashHexFile, port, 100, true, verbose)) 	// delay
 		{
 			if (verbose) cout << "FLASH:  FAILED" << endl;
 			success = false;
