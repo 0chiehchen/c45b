@@ -40,6 +40,9 @@ echo .bash_profile
 cp -a /vagrant/.bash_profile ~vagrant/
 cp -a /vagrant/.minirc.dfl ~vagrant/
 
+# setup /dev/modem
+sudo ln -s /dev/ttyUSB0 /dev/modem
+
 echo "
 bootstrap.sh done...
 "
