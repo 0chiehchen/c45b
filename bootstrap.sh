@@ -45,5 +45,11 @@ sudo ln -s /dev/ttyUSB0 /dev/modem
 
 echo "
 bootstrap.sh done...
+
+need to install c45b deb package:
+	sudo dpkg -i c45b_20140624-1_i386.deb
+	(or any newer c45b_ version)
+before doing c45b-flash-wiz.sh or other scipts...
+
 "
 
